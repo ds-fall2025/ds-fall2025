@@ -84,7 +84,7 @@
         .container {
             width: 100%;
             max-width: 1200px;
-            padding: 10px; /* Reduced padding */
+            padding: 10px;
             flex-grow: 1;
             position: relative;
             z-index: 1;
@@ -196,35 +196,41 @@
             padding-right: 40px;
             padding-left: 15px;
         }
-        .rules-content li::before {
-            content: '📝';
+        .rules-content li span.rule-icon {
             position: absolute;
             right: 15px;
-            left: auto;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
             color: #FFD700;
             font-size: 1.2em;
         }
+        .rules-content li span.rule-icon i {
+            margin-right: 5px;
+        }
 
-        .tas-grid { /* This class is now implicitly for all TAs */
+
+        .tas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjusted minmax */
-            gap: 15px; /* Reduced gap */
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
             justify-content: center;
             margin-top: 20px;
         }
 
         .chief-tas-grid {
-            display: flex; /* Kept flex for precise centering of 2 items */
+            display: flex;
             justify-content: center;
-            gap: 15px; /* Reduced gap */
+            gap: 15px;
             flex-wrap: wrap;
             margin-bottom: 30px;
         }
 
         .other-tas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjusted minmax for smaller cards */
-            gap: 15px; /* Reduced gap */
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 15px;
             justify-content: center;
         }
 
@@ -234,7 +240,6 @@
             border-radius: 10px;
             padding: 20px;
             text-align: center;
-            /* Removed fixed width from here, let grid handle it */
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
@@ -274,10 +279,10 @@
 
         #weeks-container-new {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted minmax */
-            gap: 15px; /* Reduced gap */
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* Further adjusted minmax */
+            gap: 10px; /* Further reduced gap */
             justify-content: center;
-            padding: 10px; /* Reduced padding */
+            padding: 5px; /* Reduced padding */
         }
         .week-card {
             background-color: rgba(0, 0, 0, 0.3);
@@ -343,33 +348,64 @@
             }
             /* Adjusted for smaller screens to ensure fit */
             .tas-grid, .chief-tas-grid, .other-tas-grid, #weeks-container-new {
-                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Even smaller for very small screens */
-                gap: 10px; /* Further reduced gap */
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); /* Even smaller for very small screens */
+                gap: 8px; /* Further reduced gap */
             }
             .ta-card {
-                width: auto; /* Allow grid to control width */
+                width: auto;
                 padding: 10px;
             }
             .ta-card img {
-                width: 80px;
-                height: 80px;
+                width: 70px; /* Smaller images */
+                height: 70px;
             }
             .ta-card h3 {
-                font-size: 1.2em;
+                font-size: 1.1em;
             }
             .ta-card p {
-                font-size: 0.8em;
+                font-size: 0.75em;
+            }
+            .ta-card .ta-links a {
+                font-size: 1em; /* Smaller icons on mobile */
+                margin: 0 4px;
             }
             .week-card {
-                width: auto; /* Allow grid to control width */
-                padding: 15px;
+                width: auto;
+                padding: 12px; /* Reduced padding */
             }
             .week-card h3 {
-                font-size: 1.4em;
+                font-size: 1.2em; /* Smaller font size for week title */
             }
             .week-card button {
+                font-size: 0.85em; /* Smaller font for buttons */
+                padding: 8px 12px; /* Reduced button padding */
+            }
+        }
+        @media (max-width: 480px) { /* Even smaller adjustments for very narrow screens */
+            .navbar .nav-link {
+                padding: 8px 10px;
                 font-size: 0.9em;
-                padding: 10px 15px;
+            }
+            .content-section {
+                padding: 10px;
+            }
+            .tas-grid, .chief-tas-grid, .other-tas-grid, #weeks-container-new {
+                grid-template-columns: repeat(auto-fit, minmax(100px, 1fr)); /* Very small cards */
+                gap: 5px;
+            }
+            .ta-card img {
+                width: 60px;
+                height: 60px;
+            }
+            .ta-card h3 {
+                font-size: 1em;
+            }
+            .week-card h3 {
+                font-size: 1.1em;
+            }
+            .week-card button {
+                font-size: 0.8em;
+                padding: 6px 10px;
             }
         }
     </style>
@@ -512,11 +548,11 @@
         <h2>قوانین کلاس</h2>
         <div class="rules-content">
             <ul>
-                <li><i class="fas fa-sticky-note"></i>&nbsp;حضور منظم در کلاس الزامی است. </li>
-                <li><i class="fas fa-sticky-note"></i>&nbsp;تحویل به موقع تکالیف. </li>
-                <li><i class="fas fa-sticky-note"></i>&nbsp;عدم تقلب در امتحانات و تکالیف. </li>
-                <li><i class="fas fa-sticky-note"></i>&nbsp;رعایت ادب و احترام در محیط کلاس و گروه. </li>
-                <li><i class="fas fa-sticky-note"></i>&nbsp;سوالات مربوط به درس فقط در گروه تلگرام مطرح شود. </li>
+                <li><span class="rule-icon">📄<i class="fas fa-pencil-alt"></i></span>&nbsp;حضور منظم در کلاس الزامی است. </li>
+                <li><span class="rule-icon">📄<i class="fas fa-pencil-alt"></i></span>&nbsp;تحویل به موقع تکالیف. </li>
+                <li><span class="rule-icon">📄<i class="fas fa-pencil-alt"></i></span>&nbsp;عدم تقلب در امتحانات و تکالیف. </li>
+                <li><span class="rule-icon">📄<i class="fas fa-pencil-alt"></i></span>&nbsp;رعایت ادب و احترام در محیط کلاس و گروه. </li>
+                <li><span class="rule-icon">📄<i class="fas fa-pencil-alt"></i></span>&nbsp;سوالات مربوط به درس فقط در گروه تلگرام مطرح شود. </li>
             </ul>
         </div>
     </section>
@@ -725,5 +761,9 @@
     });
 </script>
 
+<footer style="text-align: center; padding: 20px; margin-top: 50px; color: #aaa; font-size: 0.9em;">
+    <p>Built with 💻, curiosity, and a bit of lo-fi.😁✌️<a href="https://hamidnamjoo.com" target="_blank" style="color: #FFD700; text-decoration: none;">🌎 hamidnamjoo.com</a></p>
+</footer>
+    
 </body>
 </html>
