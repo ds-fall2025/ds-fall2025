@@ -24,14 +24,14 @@
             align-items: center;
             min-height: 100vh;
             background-color: #171717;
-            color: #E0E0E0; /* Softer white for general text */
+            color: #E0E0E0;
             font-family: 'Vazirmatn', sans-serif;
             overflow-y: auto;
             overflow-x: hidden;
             position: relative;
             padding-top: 80px;
-            direction: rtl; /* RTL direction for the entire page */
-            text-align: right; /* Default text alignment for RTL */
+            direction: rtl;
+            text-align: right;
         }
 
         #particles-js {
@@ -61,7 +61,7 @@
             flex-wrap: wrap;
         }
         .nav-link {
-            color: #B0C4DE; /* Light steel blue for nav links */
+            color: #B0C4DE;
             text-decoration: none;
             padding: 10px 20px;
             margin: 0 10px;
@@ -71,27 +71,27 @@
             border-radius: 5px;
         }
         .nav-link:hover {
-            color: #ADD8E6; /* Lighter blue on hover */
+            color: #ADD8E6;
             background-color: rgba(255, 255, 255, 0.1);
             transform: translateY(-2px);
         }
         .nav-link.active {
-            color: #171717; /* Dark text for active tab */
-            background-color: #FFD700; /* Gold for active tab */
+            color: #171717;
+            background-color: #FFD700;
             box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
         }
 
         .container {
             width: 100%;
             max-width: 1200px;
-            padding: 20px;
+            padding: 10px; /* Reduced padding */
             flex-grow: 1;
             position: relative;
             z-index: 1;
         }
         .content-section {
             display: none;
-            background-color: rgba(128, 0, 128, 0.2); /* Muted purple, more transparent */
+            background-color: rgba(128, 0, 128, 0.2);
             padding: 40px;
             margin: 0 auto 30px auto;
             border-radius: 10px;
@@ -103,24 +103,24 @@
             display: block;
         }
         .content-section h1, .content-section h2 {
-            color: #FFD700; /* Gold for main titles */
+            color: #FFD700;
             text-align: center;
             margin-bottom: 30px;
             font-size: 2.5em;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
         .content-section h3 {
-            color: #B0C4DE; /* Steel blue for sub-titles */
+            color: #B0C4DE;
             font-size: 1.8em;
             margin-bottom: 15px;
         }
         .content-section p, .content-section ul, .content-section li {
             font-size: 1.1em;
-            line-height: 1.8; /* Increased line height for readability */
-            color: #CCCCCC; /* Light gray for general text */
+            line-height: 1.8;
+            color: #CCCCCC;
         }
         .content-section a {
-            color: #87CEEB; /* Light blue for links */
+            color: #87CEEB;
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -130,7 +130,7 @@
         }
 
         .intro-box {
-            background-color: rgba(0, 0, 0, 0.3); /* Darker transparent */
+            background-color: rgba(0, 0, 0, 0.3);
             padding: 30px;
             border-radius: 8px;
             text-align: center;
@@ -139,7 +139,7 @@
         .intro-box h2 {
             font-size: 2em;
             margin-bottom: 15px;
-            color: #FFD700; /* Gold for intro box title */
+            color: #FFD700;
         }
         .intro-box p {
             font-size: 1.15em;
@@ -166,14 +166,14 @@
         }
         .news-date {
             display: block;
-            text-align: left; /* Changed to left for RTL date */
+            text-align: left;
             font-size: 0.9em;
             color: #999;
             margin-top: 10px;
         }
 
         .resources-list a {
-            color: #B0C4DE; /* Steel blue for resources links */
+            color: #B0C4DE;
             text-decoration: none;
             display: inline-block;
             margin-top: 5px;
@@ -193,47 +193,48 @@
             border-radius: 8px;
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
             position: relative;
-            padding-right: 40px; /* Changed for RTL icon */
-            padding-left: 15px; /* Adjust padding for RTL */
+            padding-right: 40px;
+            padding-left: 15px;
         }
         .rules-content li::before {
             content: '📝';
             position: absolute;
-            right: 15px; /* Changed for RTL icon */
-            left: auto; /* Ensure left is not set */
-            color: #FFD700; /* Gold for rules icon */
+            right: 15px;
+            left: auto;
+            color: #FFD700;
             font-size: 1.2em;
         }
 
-        .tas-grid {
+        .tas-grid { /* This class is now implicitly for all TAs */
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjusted minmax */
+            gap: 15px; /* Reduced gap */
             justify-content: center;
             margin-top: 20px;
         }
 
         .chief-tas-grid {
-            display: flex;
+            display: flex; /* Kept flex for precise centering of 2 items */
             justify-content: center;
-            gap: 25px;
+            gap: 15px; /* Reduced gap */
             flex-wrap: wrap;
-            margin-bottom: 30px; /* Space between chief and other TAs */
+            margin-bottom: 30px;
         }
 
         .other-tas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Slightly smaller cards */
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); /* Adjusted minmax for smaller cards */
+            gap: 15px; /* Reduced gap */
             justify-content: center;
         }
 
         .ta-card {
             background-color: rgba(0, 0, 0, 0.3);
-            border: 1px solid #B0C4DE; /* Steel blue border */
+            border: 1px solid #B0C4DE;
             border-radius: 10px;
             padding: 20px;
             text-align: center;
+            /* Removed fixed width from here, let grid handle it */
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
             display: flex;
             flex-direction: column;
@@ -242,7 +243,7 @@
         }
         .ta-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 0 25px rgba(176, 196, 222, 0.6); /* Lighter blue glow on hover */
+            box-shadow: 0 0 25px rgba(176, 196, 222, 0.6);
         }
         .ta-card img {
             width: 100px;
@@ -250,11 +251,11 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
-            border: 3px solid #FFD700; /* Gold border for image */
+            border: 3px solid #FFD700;
         }
         .ta-card h3 {
             margin-bottom: 5px;
-            color: #FFD700; /* Gold for TA names */
+            color: #FFD700;
         }
         .ta-card p {
             font-size: 0.95em;
@@ -262,9 +263,9 @@
             margin-bottom: 10px;
         }
         .ta-card .ta-links a {
-            font-size: 1.2em; /* Larger icons */
+            font-size: 1.2em;
             margin: 0 8px;
-            color: #87CEEB; /* Light blue for icons */
+            color: #87CEEB;
             text-decoration: none;
         }
         .ta-card .ta-links a:hover {
@@ -273,10 +274,10 @@
 
         #weeks-container-new {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Adjusted minmax */
+            gap: 15px; /* Reduced gap */
             justify-content: center;
-            padding: 20px;
+            padding: 10px; /* Reduced padding */
         }
         .week-card {
             background-color: rgba(0, 0, 0, 0.3);
@@ -288,7 +289,7 @@
         }
         .week-card:hover {
             transform: translateY(-7px);
-            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7); /* Gold glow on hover */
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
         }
         .week-card h3 {
             color: #FFD700;
@@ -340,21 +341,35 @@
                 width: 95%;
                 padding: 15px;
             }
-            .week-box {
-                width: 180px;
-                padding: 15px;
+            /* Adjusted for smaller screens to ensure fit */
+            .tas-grid, .chief-tas-grid, .other-tas-grid, #weeks-container-new {
+                grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); /* Even smaller for very small screens */
+                gap: 10px; /* Further reduced gap */
             }
             .ta-card {
-                width: 150px;
+                width: auto; /* Allow grid to control width */
+                padding: 10px;
             }
-            .tas-grid {
-                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            .ta-card img {
+                width: 80px;
+                height: 80px;
             }
-            .chief-tas-grid, .other-tas-grid {
-                 grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            .ta-card h3 {
+                font-size: 1.2em;
             }
-            #weeks-container-new {
-                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            .ta-card p {
+                font-size: 0.8em;
+            }
+            .week-card {
+                width: auto; /* Allow grid to control width */
+                padding: 15px;
+            }
+            .week-card h3 {
+                font-size: 1.4em;
+            }
+            .week-card button {
+                font-size: 0.9em;
+                padding: 10px 15px;
             }
         }
     </style>
@@ -497,11 +512,11 @@
         <h2>قوانین کلاس</h2>
         <div class="rules-content">
             <ul>
-                <li>حضور منظم در کلاس الزامی است.</li>
-                <li>تحویل به موقع تکالیف.</li>
-                <li>عدم تقلب در امتحانات و تکالیف.</li>
-                <li>رعایت ادب و احترام در محیط کلاس و گروه.</li>
-                <li>سوالات مربوط به درس فقط در گروه تلگرام مطرح شود.</li>
+                <li><i class="fas fa-sticky-note"></i>&nbsp;حضور منظم در کلاس الزامی است. </li>
+                <li><i class="fas fa-sticky-note"></i>&nbsp;تحویل به موقع تکالیف. </li>
+                <li><i class="fas fa-sticky-note"></i>&nbsp;عدم تقلب در امتحانات و تکالیف. </li>
+                <li><i class="fas fa-sticky-note"></i>&nbsp;رعایت ادب و احترام در محیط کلاس و گروه. </li>
+                <li><i class="fas fa-sticky-note"></i>&nbsp;سوالات مربوط به درس فقط در گروه تلگرام مطرح شود. </li>
             </ul>
         </div>
     </section>
@@ -695,7 +710,7 @@
                     "speed": 3
                 },
                 "repulse": {
-                    "distance": 80, /* Reduced repulse distance */
+                    "distance": 80,
                     "duration": 0.4
                 },
                 "push": {
