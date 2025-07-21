@@ -27,7 +27,7 @@
             overflow-y: auto;
             overflow-x: hidden;
             position: relative;
-            padding-top: 85px;
+            padding-top: 80px;
             direction: rtl;
             text-align: right;
         }
@@ -82,7 +82,7 @@
         .container {
             width: 100%;
             max-width: 1200px;
-            padding: 10px;
+            padding: 5px;
             margin: 0 auto;
             flex-grow: 1;
             position: relative;
@@ -92,11 +92,11 @@
             display: none;
             background-color: rgba(128, 0, 128, 0.2);
             padding: 40px;
-            margin: 0 auto 30px auto;
+            margin: 0 auto 20px auto;
             border-radius: 10px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
             color: #E0E0E0;
-            width: 90%;
+            width: 85%;
             max-width: 1000px;
         }
         .content-section.active {
@@ -106,17 +106,17 @@
             color: #FFD700;
             text-align: center;
             margin-bottom: 30px;
-            font-size: 2.5em;
+            font-size: 2.3em;
             text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
         .content-section h3 {
             color: #B0C4DE;
-            font-size: 1.8em;
+            font-size: 1.6em;
             margin-bottom: 15px;
         }
         .content-section p, .content-section ul, .content-section li {
             font-size: 1.1em;
-            line-height: 1.8;
+            line-height: 1.5;
             color: #CCCCCC;
         }
         .content-section a {
@@ -142,12 +142,12 @@
             color: #FFD700;
         }
         .intro-box p {
-            font-size: 1.25em;
+            font-size: 1.20em;
             margin-bottom: 10px;
             color: #E0E0E0;
         }
         .intro-box a {
-            font-size: 1.25em;
+            font-size: 1.20em;
         }
 
         .news-feed, .resources-list, .rules-content {
@@ -156,7 +156,7 @@
 
         .news-item, .resource-item {
             background-color: rgba(0, 0, 0, 0.2);
-            padding: 20px;
+            padding: 10px;
             border-radius: 8px;
             margin-bottom: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -192,7 +192,7 @@
         }
         .rules-content li {
             background-color: rgba(0, 0, 0, 0.2);
-            padding: 15px 20px;
+            padding: 10px 15px;
             margin-bottom: 10px;
             border-radius: 8px;
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
@@ -218,7 +218,7 @@
 
         .tas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
             gap: 15px;
             justify-content: center;
             margin-top: 20px;
@@ -227,14 +227,14 @@
         .chief-tas-grid {
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
             flex-wrap: wrap;
             margin-bottom: 30px;
         }
         .tas-section-title { /* New class for TA section titles */
             text-align: center;
-            margin-top: 40px;
-            margin-bottom: 20px;
+            margin-top: 20px;
+            margin-bottom: 10px;
             color: #FFD700;
             font-size: 2em;
             width: 100%; /* Ensure it takes full width to center properly */
@@ -246,18 +246,19 @@
             width: 80%; /* Adjust width of the line */
             height: 1px;
             background-color: rgba(176, 196, 222, 0.5); /* Blue line */
-            margin-top: 30px; /* Space above the line */
-            margin-bottom: 30px; /* Space below the line */
-            position: relative; /* To center it */
-            left: 50%;
-            transform: translateX(-50%);
+            margin: 25px auto; /* This will center the block element horizontally */
+/*             margin-top: 30px; /* Space above the line */ */
+/*             margin-bottom: 30px; /* Space below the line */ */
+/*             position: relative; /* To center it */ */
+/*             left: 50%; */
+/*             transform: translateX(-50%); */
         }
 
 
         .other-tas-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
             justify-content: center;
         }
 
@@ -265,7 +266,7 @@
             background-color: rgba(0, 0, 0, 0.3);
             border: 1px solid #B0C4DE;
             border-radius: 10px;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
             display: flex;
@@ -278,8 +279,8 @@
             box-shadow: 0 0 25px rgba(176, 196, 222, 0.6);
         }
         .ta-card img {
-            width: 100px;
-            height: 100px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
@@ -290,7 +291,7 @@
             color: #FFD700;
         }
         .ta-card p {
-            font-size: 0.95em;
+            font-size: 0.90em;
             color: #CCCCCC;
             margin-bottom: 10px;
         }
@@ -306,14 +307,14 @@
 
         #weeks-container-new {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-            gap: 10px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 8px;
             justify-content: center;
             padding: 5px;
         }
         .week-card {
             background-color: rgba(0, 0, 0, 0.3);
-            padding: 25px;
+            padding: 10px;
             border-radius: 10px;
             text-align: center;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
@@ -326,7 +327,7 @@
         .week-card h3 {
             color: #FFD700;
             margin-bottom: 20px;
-            font-size: 1.8em;
+            font-size: 1.5em;
         }
         .week-card button {
             padding: 12px 18px;
@@ -337,7 +338,7 @@
             width: 90%;
             margin-bottom: 10px;
             transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-            font-size: 1em;
+            font-size: 0.8em;
         }
         .week-card button.active {
             background-color: #4CAF50;
