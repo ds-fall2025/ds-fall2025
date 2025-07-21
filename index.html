@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Structures - Dr. Eskandari - Fall 2025</title>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        body {
+            display: block;
+            min-height: 100vh;
+            background-color: #171717;
+            color: #f0f0f0;
+            font-family: sans-serif;
+            overflow-y: auto;
+            overflow-x: hidden;
+            position: relative;
+            padding-top: 80px;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background-color: #171717;
+            background-image: url('');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 50% 50%;
+            z-index: -2;
+        }
+
+        #bg-wrap {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        #bg-wrap svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .lines {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            margin: auto;
+            width: 100%;
+            pointer-events: none;
+        }
+
+        .line {
+            position: absolute;
+            width: 1px;
+            height: 100%;
+            top: 0;
+            left: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+        }
+
+        .line::after {
+            content: "";
+            display: block;
+            position: absolute;
+            height: 15vh;
+            width: 100%;
+            top: -50%;
+            left: 0;
+            background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 75%, #ffffff 100%);
+            animation: drop 5s 0s infinite;
+            animation-fill-mode: forwards;
+            animation-timing-function: cubic-bezier(0.4, 0.26, 0, 0.97);
+        }
+
+        .line:nth-child(1) {
+            margin-left: -25%;
+        }
+
+        .line:nth-child(1)::after {
+            animation-delay: 2s;
+        }
+
+        .line:nth-child(2) {
+            margin-left: 0;
+        }
+
+        .line:nth-child(2)::after {
+            animation-delay: 2.5s;
+        }
+
+        .line:nth-child(3) {
+            margin-left: 25%;
+        }
+
+        .line:nth-child(3)::after {
+            animation-delay: 3s;
+        }
+
+        @keyframes drop {
+            0% {
+                top: -50%;
+            }
+            100% {
+                top: 110%;
+            }
+        }
+
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            text-align: center;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .nav-link {
+            color: #D4AF37;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-size: 1.1em;
+            font-weight: bold;
+            transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+            border-radius: 5px;
+        }
+        .nav-link:hover {
+            color: #FFD700;
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        .nav-link.active {
+            color: #FFFFFF;
+            background-color: #D4AF37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.7);
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+            flex-grow: 1;
+            position: relative;
+            z-index: 1;
+        }
+        .content-section {
+            display: none;
+            background-color: rgba(255, 255, 255, 0.05);
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+            color: #E0E0E0;
+        }
+        .content-section.active {
+            display: block;
+        }
+        .content-section h1, .content-section h2 {
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+        .content-section h3 {
+            color: #D4AF37;
+            font-size: 1.8em;
+            margin-bottom: 15px;
+        }
+        .content-section p, .content-section ul, .content-section li {
+            font-size: 1.1em;
+            line-height: 1.6;
+            color: #CCCCCC;
+        }
+        .content-section a {
+            color: #87CEEB;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .content-section a:hover {
+            color: #ADD8E6;
+            text-decoration: underline;
+        }
+
+        .intro-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+        }
+        .intro-box h2 {
+            font-size: 2em;
+            margin-bottom: 15px;
+        }
+        .intro-box p {
+            font-size: 1.15em;
+            margin-bottom: 10px;
+        }
+
+        .news-feed, .resources-list, .rules-content {
+            margin-top: 20px;
+        }
+
+        .news-item, .resource-item {
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .news-item h3, .resource-item h3 {
+            color: #FFD700;
+            margin-bottom: 10px;
+        }
+        .news-item p {
+            color: #E0E0E0;
+        }
+        .news-date {
+            display: block;
+            text-align: right;
+            font-size: 0.9em;
+            color: #999;
+            margin-top: 10px;
+        }
+
+        .resources-list a {
+            color: #D4AF37;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        .resources-list a:hover {
+            text-decoration: underline;
+        }
+
+        .rules-content ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .rules-content li {
+            background-color: rgba(255, 255, 255, 0.08);
+            padding: 15px 20px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            padding-left: 40px;
+        }
+        .rules-content li::before {
+            content: '📝';
+            position: absolute;
+            left: 15px;
+            color: #D4AF37;
+            font-size: 1.2em;
+        }
+
+        .tas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            justify-content: center;
+        }
+        .ta-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease;
+        }
+        .ta-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+        }
+        .ta-card img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #D4AF37;
+        }
+        .ta-card h3 {
+            margin-bottom: 5px;
+            color: #FFD700;
+        }
+        .ta-card p {
+            font-size: 0.95em;
+            color: #CCC;
+            margin-bottom: 10px;
+        }
+        .ta-card a {
+            font-size: 0.9em;
+            margin: 0 5px;
+            color: #87CEEB;
+            text-decoration: none;
+        }
+        .ta-card a:hover {
+            text-decoration: underline;
+        }
+
+        #weeks-container-new {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+        }
+        .week-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .week-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.7);
+        }
+        .week-card h3 {
+            color: #FFD700;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+        .week-card button {
+            padding: 12px 18px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 90%;
+            margin-bottom: 10px;
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            font-size: 1em;
+        }
+        .week-card button.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .week-card button.active:hover {
+            background-color: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(76, 175, 80, 0.4);
+        }
+        .week-card button.inactive {
+            background-color: #777;
+            color: #DDD;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        .week-card button.inactive:hover {
+            transform: none;
+            box-shadow: none;
+        }
+
+        @media (max-width: 768px) {
+            .navbar {
+                flex-wrap: wrap;
+                justify-content: center;
+                padding: 10px;
+            }
+            .navbar .nav-link {
+                padding: 10px 15px;
+                font-size: 1em;
+            }
+            .content-section {
+                width: 95%;
+                padding: 15px;
+            }
+            .week-box { /* This class is no longer used for dynamic cards. week-card is used. */
+                width: 180px;
+                padding: 15px;
+            }
+            .ta-card {
+                width: 150px;
+            }
+            .tas-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            }
+            #weeks-container-new {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="#home" class="nav-link active">صفحه اصلی</a>
+    <a href="#news" class="nav-link">اخبار و اطلاعیه‌ها</a>
+    <a href="#tas" class="nav-link">معرفی TAها</a>
+    <a href="#resources" class="nav-link">منابع تکمیلی</a>
+    <a href="#rules" class="nav-link">قوانین کلاس</a>
+    <a href="#homeworks" class="nav-link">تمرین‌ها و پاسخ‌ها</a>
+</nav>
+
+<div id="particles-js"></div>
+
+<div id="bg-wrap">
+    <svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice">
+        <defs>
+            <radialGradient id="Gradient1" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stop-color="rgba(255, 0, 255, 1)"></stop>
+                <stop offset="100%" stop-color="rgba(255, 0, 255, 0)"></stop>
+            </radialGradient>
+            <radialGradient id="Gradient2" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stop-color="rgba(255, 165, 0, 1)"></stop>
+                <stop offset="100%" stop-color="rgba(255, 165, 0, 0)"></stop>
+            </radialGradient>
+            <radialGradient id="Gradient3" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stop-color="rgba(0, 255, 255, 1)"></stop>
+                <stop offset="100%" stop-color="rgba(0, 255, 255, 0)"></stop>
+            </radialGradient>
+            <radialGradient id="Gradient4" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stop-color="rgba(0, 255, 0, 1)"></stop>
+                <stop offset="100%" stop-color="rgba(0, 255, 0, 0)"></stop>
+            </radialGradient>
+            <radialGradient id="Gradient5" cx="50%" cy="50%" fx="0.441602%" fy="50%" r=".5">
+                <animate attributeName="fx" dur="34s" values="0%;3%;0%" repeatCount="indefinite"></animate>
+                <stop offset="0%" stop-color="rgba(255, 255, 0, 1)"></stop>
+                <stop offset="100%" stop-color="rgba(255, 255, 0, 0)"></stop>
+            </radialGradient>
+        </defs>
+        <rect x="13.744%" y="1.18473%" width="100%" height="100%" fill="url(#Gradient1)" transform="rotate(334.41 50 50)">
+            <animate attributeName="x" dur="20s" values="25%;0%;25%" repeatCount="indefinite"></animate>
+            <animate attributeName="y" dur="21s" values="0%;25%;0%" repeatCount="indefinite"></animate>
+            <animateTransform attributeName="transform" type="rotate" from="0 50 50" to="360 50 50" dur="7s" repeatCount="indefinite"></animateTransform>
+        </rect>
+    </svg>
+</div>
+
+<main class="container">
+    <section id="home" class="content-section active">
+        <h1>ساختمان داده - دکتر اسکندری - 4032</h1>
+        <div class="intro-box">
+            <h2>استاد: دکتر اسکندری</h2>
+            <p>سرپرست TAها: امیرحسین همتی، اشکان جمشید، حمید نامجو</p>
+            <p>TAها: فاطمه امیری، هستی طباطبایی، نیما سلطانی، بهاره خضری، رایا خبری، نرجس نصیری، نیوشا غلامی، یاسمن نارنجی‌فرد</p>
+            <p>لینک گروه: <a href="https://t.me/datastructures4032" target="_blank">https://t.me/datastructures4032</a></p>
+            <p>لینک کانال: <a href="https://t.me/ds_4032_channel" target="_blank">https://t.me/ds_4032_channel</a></p>
+        </div>
+    </section>
+
+    <section id="news" class="content-section">
+        <h2>اخبار و اطلاعیه‌های کلاس</h2>
+        <div class="news-feed">
+            <div class="news-item">
+                <h3>جلسه توجیهی آنلاین</h3>
+                <p>جلسه توجیهی درس ساختمان داده روز شنبه 25 شهریور ساعت 10 صبح برگزار خواهد شد. لینک جلسه متعاقباً اعلام می‌شود.</p>
+                <span class="news-date">2024/09/15</span>
+            </div>
+            <div class="news-item">
+                <h3>شروع کلاس‌ها</h3>
+                <p>اولین جلسه کلاس ساختمان داده طبق برنامه هفتگی از تاریخ 1 مهر ماه آغاز می‌شود.</p>
+                <span class="news-date">2024/09/20</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="tas" class="content-section">
+        <h2>معرفی دستیاران آموزشی (TAها)</h2>
+        <div class="tas-grid">
+            <div class="ta-card">
+                <img src="https://placehold.co/100x100/000000/FFFFFF?text=Amirhosein" alt="Amirhosein Hemati">
+                <h3>امیرحسین همتی (سرپرست)</h3>
+                <p>تخصص: الگوریتم‌ها، C++</p>
+                <a href="#" target="_blank">لینک گیت‌هاب</a> | <a href="#" target="_blank">لینک تلگرام</a>
+            </div>
+            <div class="ta-card">
+                <img src="https://placehold.co/100x100/000000/FFFFFF?text=Ashkan" alt="Ashkan Jamshid">
+                <h3>اشکان جمشید (سرپرست)</h3>
+                <p>تخصص: ساختمان داده، پایتون</p>
+                <a href="#" target="_blank">لینک گیت‌هاب</a> | <a href="#" target="_blank">لینک تلگرام</a>
+            </div>
+            <div class="ta-card">
+                <img src="https://placehold.co/100x100/000000/FFFFFF?text=Fateme" alt="Fateme Amiri">
+                <h3>فاطمه امیری</h3>
+                <p>تخصص: جاوا، تست‌نویسی</p>
+                <a href="#" target="_blank">لینک گیت‌هاب</a> | <a href="#" target="_blank">لینک تلگرام</a>
+            </div>
+            <div class="ta-card">
+                <img src="https://placehold.co/100x100/000000/FFFFFF?text=Hasti" alt="Hasti Tabatabaei">
+                <h3>هستی طباطبایی</h3>
+                <p>تخصص: هوش مصنوعی</p>
+                <a href="#" target="_blank">لینک گیت‌هاب</a> | <a href="#" target="_blank">لینک تلگرام</a>
+            </div>
+            <div class="ta-card">
+                <img src="https://placehold.co/100x100/000000/FFFFFF?text=Nima" alt="Nima Soltani">
+                <h3>نیما سلطانی</h3>
+                <p>تخصص: مبانی برنامه نویسی</p>
+                <a href="#" target="_blank">لینک گیت‌هاب</a> | <a href="#" target="_blank">لینک تلگرام</a>
+            </div>
+            <div class="ta-card">
+                <img src="https://placehold.co/100x100/000000/FFFFFF?text=Bahareh" alt="Bahareh Khedri">
+                <h3>بهاره خضری</h3>
+                <p>تخصص: مهندسی نرم‌افزار</p>
+                <a href="#" target="_blank">لینک گیت‌هاب</a> | <a href="#" target="_blank">لینک تلگرام</a>
+            </div>
+            <div class="ta-card">
+                <img src="https://placehold.co/100x100/000000/FFFFFF?text=Raya" alt="Raya Khabiri">
+                <h3>رایا خبری</h3>
+                <p>تخصص: پایگاه داده</p>
+                <a href="#" target="_blank">لینک گیت‌هاب</a> | <a href="#" target="_blank">لینک تلگرام</a>
+            </div>
+            <div class="ta-card">
+                <img src="https://placehold.co/100x100/000000/FFFFFF?text=Narjes" alt="Narjes Nasiri">
+                <h3>نرجس نصیری</h3>
+                <p>تخصص: شبکه‌های کامپیوتری</p>
+                <a href="#" target="_blank">لینک گیت‌هاب</a> | <a href="#" target="_blank">لینک تلگرام</a>
+            </div>
+            <div class="ta-card">
+                <img src="https://placehold.co/100x100/000000/FFFFFF?text=Niusha" alt="Niusha Gholami">
+                <h3>نیوشا غلامی</h3>
+                <p>تخصص: گرافیک کامپیوتری</p>
+                <a href="#" target="_blank">لینک گیت‌هاب</a> | <a href="#" target="_blank">لینک تلگرام</a>
+            </div>
+            <div class="ta-card">
+                <img src="https://placehold.co/100x100/000000/FFFFFF?text=Yasaman" alt="Yasaman Narangifard">
+                <h3>یاسمن نارنجی‌فرد</h3>
+                <p>تخصص: طراحی وب</p>
+                <a href="#" target="_blank">لینک گیت‌هاب</a> | <a href="#" target="_blank">لینک تلگرام</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="resources" class="content-section">
+        <h2>منابع تکمیلی</h2>
+        <div class="resources-list">
+            <div class="resource-item">
+                <h3>کتاب: Introduction to Algorithms (CLRS)</h3>
+                <p>مرجع اصلی درس ساختمان داده و الگوریتم‌ها.</p>
+                <a href="#" target="_blank">لینک دانلود / معرفی</a>
+            </div>
+            <div class="resource-item">
+                <h3>وب‌سایت: GeeksforGeeks</h3>
+                <p>منبع عالی برای تمرین و یادگیری ساختمان داده و الگوریتم‌ها.</p>
+                <a href="https://www.geeksforgeeks.org/" target="_blank">بازدید از سایت</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="rules" class="content-section">
+        <h2>قوانین کلاس</h2>
+        <div class="rules-content">
+            <ul>
+                <li>حضور منظم در کلاس الزامی است.</li>
+                <li>تحویل به موقع تکالیف.</li>
+                <li>عدم تقلب در امتحانات و تکالیف.</li>
+                <li>رعایت ادب و احترام در محیط کلاس و گروه.</li>
+                <li>سوالات مربوط به درس فقط در گروه تلگرام مطرح شود.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="homeworks" class="content-section">
+        <h2>تمرین‌ها و پاسخ‌ها</h2>
+        <div id="weeks-container-new">
+            </div>
+    </section>
+</main>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const navLinks = document.querySelectorAll('.nav-link');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        function showSection(sectionId) {
+            contentSections.forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(sectionId).classList.add('active');
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`.nav-link[href="#${sectionId}"]`).classList.add('active');
+        }
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(event) {
+                event.preventDefault();
+                const targetSectionId = this.getAttribute('href').substring(1);
+                showSection(targetSectionId);
+            });
+        });
+
+        if (window.location.hash) {
+            showSection(window.location.hash.substring(1));
+        } else {
+            showSection('home');
+        }
+    });
+
+    function createWeekCard(weekNumber, homeworkLink, answerLink) {
+        const container = document.getElementById('weeks-container-new');
+        const weekCard = document.createElement('div');
+        weekCard.className = 'week-card';
+        weekCard.id = `week${weekNumber}`;
+
+        weekCard.innerHTML = `
+            <h3>هفته ${weekNumber}</h3>
+            <button class="${homeworkLink ? 'active' : 'inactive'}" id="homework-pack-week${weekNumber}">پک تمرین (ZIP)</button>
+            <button class="${answerLink ? 'active' : 'inactive'}" id="answer-pack-week${weekNumber}">پک پاسخ (ZIP)</button>
+        `;
+
+        container.appendChild(weekCard);
+
+        const homeworkButton = weekCard.querySelector(`#homework-pack-week${weekNumber}`);
+        const answerButton = weekCard.querySelector(`#answer-pack-week${weekNumber}`);
+
+        if (homeworkLink) {
+            homeworkButton.onclick = function() {
+                const a = document.createElement('a');
+                a.href = homeworkLink;
+                a.download = `HW${weekNumber}.zip`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+        }
+        if (answerLink) {
+            answerButton.onclick = function() {
+                const a = document.createElement('a');
+                a.href = answerLink;
+                a.download = `AnswerPack${weekNumber}.zip`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            };
+        }
+    }
+
+    createWeekCard(1, 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/HW01.zip', 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/AW01.zip');
+    createWeekCard(2, 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/HW02.zip', 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/AW02.zip');
+    createWeekCard(3, 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/HW03.zip', 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/AW03.zip');
+    createWeekCard(4, 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/HW04.zip', 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/AW04.zip');
+    createWeekCard(5, 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/HW05.zip', 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/AW05.zip');
+    createWeekCard(6, 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/HW06.zip', 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/AW06.zip');
+    createWeekCard(7, 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/HW07.zip', 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/AW07.zip');
+    createWeekCard(8, 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/HW08.zip', 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/AW08.zip');
+    createWeekCard(9, 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/HW09.zip', 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/AW09.zip');
+    createWeekCard(10, 'https://github.com/Ds-of-Azad-University4032/weekly-homework-public/raw/refs/heads/main/HW10.zip', null);
+    createWeekCard(11, null, null);
+    createWeekCard(12, null, null);
+    createWeekCard(13, null, null);
+    createWeekCard(14, null, null);
+    createWeekCard(15, null, null);
+</script>
+
+</body>
+</html>
