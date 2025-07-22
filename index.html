@@ -391,13 +391,14 @@
 
         @media (max-width: 768px) {
             .navbar {
-                flex-wrap: wrap;
-                justify-content: center;
-                padding: 10px;
+/*                 flex-wrap: wrap; */
+                justify-content: space-around;;
+                padding: 8px;
             }
             .navbar .nav-link {
-                padding: 10px 15px;
-                font-size: 1em;
+                padding: 8px 10px;
+                margin: 0 5px;
+                font-size: 0.9em;
             }
             .content-section {
                 width: 95%;
@@ -439,11 +440,25 @@
             .tas-section-title {
                 font-size: 1.5em;
             }
+            .intro-box p {
+                font-size: 1.1em;
+                word-break: break-word;
+            }
+            .intro-box a {
+                font-size: 1.1em;
+            }
         }
         @media (max-width: 480px) {
+
+            .navbar {
+                padding: 6px 0;
+                justify-content: space-between;
+            }
+            
             .navbar .nav-link {
-                padding: 8px 10px;
-                font-size: 0.9em;
+                padding: 6px 8px;
+                margin: 0 3px;
+                font-size: 0.8em;
             }
             .content-section {
                 padding: 10px;
@@ -465,6 +480,9 @@
             .week-card button {
                 font-size: 0.8em;
                 padding: 6px 10px;
+            }
+            .intro-box p, .intro-box a {
+                font-size: 1em;
             }
         }
     </style>
