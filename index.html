@@ -229,6 +229,54 @@
             padding-right: 45px;
             padding-left: 15px;
         }
+        .rules-item-box {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 25px 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        
+        .rules-item-box h3 {
+            color: #FFD700;
+            text-align: center;
+            margin-bottom: 15px;
+            font-size: 1.6em;
+        }
+        
+        .rules-item-box ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        
+        .rules-item-box ul li {
+            position: relative;
+            padding-right: 30px;
+            padding-left: 10px;
+            margin-bottom: 8px;
+            line-height: 1.6;
+            color: #E0E0E0;
+            font-size: 1em;
+        }
+        
+        .rules-item-box ul li:last-child {
+            margin-bottom: 0;
+        }
+        
+        .rules-item-box ul li span.rule-icon {
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #FFD700;
+            font-size: 1.2em;
+            line-height: 1;
+        }
+        
+        .rules-item-box ul li .rule-text {
+            display: inline-block;
+            padding-right: 20px;
+        }
         .rules-content li span.rule-icon {
             position: absolute;
             right: 15px;
@@ -655,11 +703,19 @@
             <ul>
                 <li><span class="rule-icon">📄</span><span class="rule-text">حضور منظم در کلاس الزامی است. </span></li>
                 <li><span class="rule-icon">📄</span><span class="rule-text">تحویل به موقع تکالیف. </span></li>
-                <li><span class="rule-icon">📄</span><span class="rule-text">عدم تقلب در امتحانات و عدم استفاده از  چت بات در حل تکالیف. </span></li>
-                <li><span class="rule-icon">📄</span><span class="rule-text">رعایت ادب و احترام در محیط کلاس و گروه. </span></li>
-                <li><span class="rule-icon">📄</span><span class="rule-text">سوالات مربوط به درس در پیوی دستیاران آموزش پرسیده نشود و فقط در گروه تلگرام مطرح شود. </span></li>
+                <li><span class="rule-icon">📄</span><span class="rule-text">عدم تقلب در امتحانات و عدم استفاده از  LLMها در حل تکالیف. </span></li>
+                <li><span class="rule-icon">📄</span><span class="rule-text">سوالات مربوط به درس در پیوی دستیاران آموزش <strong>پرسیده نشود</strong> و <strong>فقط</strong> در گروه تلگرام مطرح شود. </span></li>
             </ul>
-        </div>
+            <div class="rules-item-box">
+                <h3 style="text-align: center; color: #FFD700; margin-bottom: 15px;">❗️زمان های مهم:</h3>
+                <ul>
+                    <li><span class="rule-icon">🗓️</span><span class="rule-text">کلاس درسی: دوشنبه </span></li>
+                    <li><span class="rule-icon">⏰</span><span class="rule-text">زمان انتشار تکالیف: ۹ صبح سه شنبه </span></li>
+                    <li><span class="rule-icon">⏳</span><span class="rule-text">ددلاین ارسال تکالیف: ۲۳:۵۹ جمعه </span></li>
+                    <li><span class="rule-icon">✅</span><span class="rule-text">زمان انتشار پاسخنامه‌ی تکالیف: ۰۰:۰۰ جمعه </span></li>
+                </ul>
+            </div>
+            </div>
     </section>
 
     <section id="homeworks" class="content-section">
