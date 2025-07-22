@@ -1,4 +1,4 @@
-# 📚 DS_Fall2025: Data Structures Course Website - Fall 2025 📚
+# 📚 DS_Fall2025: Data Structures Course Website - Fall 2025
 
 Welcome to the official webpage for the Data Structures course, Fall 2025 intake, taught by Dr. Eskandari! This repository contains the source code and files for the course website, providing comprehensive information and educational resources for students.
 
