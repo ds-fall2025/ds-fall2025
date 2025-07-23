@@ -180,11 +180,11 @@
             font-size: 1.20em;
         }
 
-        .news-feed, .resources-list, .rules-content {
+        .news-feed, .resources-list, .rules-content, .video-list {
             margin-top: 20px;
         }
 
-        .news-item, .resource-item {
+        .news-item, .resource-item, .video-item {
             background-color: rgba(0, 0, 0, 0.2);
             padding: 10px;
             border-radius: 8px;
@@ -409,6 +409,32 @@
             color: #ADD8E6;
         }
 
+        .video-item h3 { 
+            color: #f0ebd8;
+            margin-bottom: 10px;
+        }
+        .video-item p { 
+            color: #E0E0E0;
+        }
+        .video-item a { 
+            color: #87CEEB;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
+        }
+        .video-item a:hover {
+            text-decoration: underline;
+        }
+        
+        .video-item a .rule-icon { 
+            position: static; 
+            transform: none;
+            display: inline-block;
+            margin-left: 8px;
+            color: #f0ebd8; 
+            font-size: 1.2em;
+        }
+
         #weeks-container-new {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -586,12 +612,13 @@
 <body>
 
 <nav class="navbar">
-    <a href="#home" class="nav-link active">صفحه اصلی</a>
-    <a href="#news" class="nav-link">اخبار و اطلاعیه‌ها</a>
-    <a href="#tas" class="nav-link">معرفی TAها</a>
-    <a href="#resources" class="nav-link">منابع تکمیلی</a>
-    <a href="#rules" class="nav-link">قوانین کلاس</a>
-    <a href="#homeworks" class="nav-link">تمرین‌ها و پاسخ‌ها</a>
+    <a href="#Home" class="nav-link active">صفحه اصلی</a>
+    <a href="#News" class="nav-link">اخبار و اطلاعیه‌ها</a>
+    <a href="#TAs" class="nav-link">TAها</a>
+    <a href="#Resources" class="nav-link">منابع تکمیلی</a>
+    <a href="#Video" class="nav-link">فیلم جلسات تکمیلی</a>
+    <a href="#Rules" class="nav-link">قوانین کلاس</a>
+    <a href="#Homeworks" class="nav-link">تمرین‌ها و پاسخ‌ها</a>
 </nav>
 
 <div id="particles-js"></div>
@@ -614,12 +641,17 @@
             <div class="news-item">
                 <h3> جلسه توجیهی (جلسه صفر!)</h3>
                 <p>جلسه توجیهی درس ساختمان داده روز دوشنبه ۳۱ شهریور ساعت 10 صبح توسط دستیاران آموزشی برگزار خواهد شد. مکان جلسه متعاقباً اعلام می‌شود.</p>
-                <span class="news-date">1404/6/28</span>
+                <span class="news-date">1404/6/17</span>
             </div>
             <div class="news-item">
                 <h3>شروع کلاس‌ها</h3>
                 <p>اولین جلسه کلاس ساختمان داده طبق برنامه انتخاب واحد از تاریخ دوشنبه ۷ مهر ماه ۱۴۰۴ آغاز می‌شود.</p>
-                <span class="news-date">1404/7/31</span>
+                <span class="news-date">1404/6/31</span>
+            </div>
+            <div class="news-item">
+                <h3>یادگیری پایتون</h3>
+                <p>موفقیت در درس و ازمون ها و تکالیف بسیار زیاد به مهارت شما در برنامه نویسی به زبان پایتون مرتبط است. در صورتی که برای فراگیری پایتون نیاز به راهنمایی دارید به دکتر اسکندری مراجعه کنید.</p>
+                <span class="news-date">1404/7/01</span>
             </div>
         </div>
     </section>
@@ -768,7 +800,7 @@
             </div>
     
             <div class="rules-item-box">
-                <h3 style="text-align: center; color: #F0EBD8; margin-bottom: 15px;">منابع تکمیلی پیشنهادی بیشتر😅:</h3>
+                <h3 style="text-align: center; color: #F0EBD8; margin-bottom: 15px;">منابع تکمیلی پیشنهادی بیشتر(اگر که مشتاق هستید)😅:</h3>
                 <ul>
                     <li>
                         <span class="rule-icon">🎥</span><span class="rule-text">ویدیوهای آموزشی برای درک بصری الگوریتم‌ها:</span>
@@ -954,9 +986,6 @@
     
                         <span class="rule-text">تحلیل سرشکن (Amortized Analysis):</span>
                         <br>
-                        <a href="https://www.youtube.com/watch?v=o5wjq34wxQU&t=40s" target="_blank">
-                            <span class="rule-icon">🔗</span><span class="rule-text">ویدیو تدریس تحلیل سرشکن - ترم ۴۰۳۱ - حمید نامجو</span>
-                        </a><br>
                         <a href="https://www.cs.cmu.edu/~avrim/451f09/lectures/" target="_blank">
                             <span class="rule-icon">🔗</span><span class="rule-text">CMU Lecture Notes: Amortized Analysis (PDF)</span>
                         </a><br>
@@ -976,6 +1005,21 @@
     
         </div>
     </section>
+
+    <section id="video" class="content-section"> 
+        <h2>فیلم جلسات تکمیلی</h2>
+        <div class="video-list">
+            <div class="video-item">
+                <h3>مبحث تحلیل سرشکن (صفحه ۱۰۳ تا ۱۱۵)</h3>
+                <p>ویدیو تدریس تحلیل سرشکن - ترم ۴۰۳۱ - حمید نامجو</p>
+                <a href="https://www.youtube.com/watch?v=o5wjq34wxQU&t" target="_blank">
+                    <span class="rule-icon">▶️</span> مشاهده ویدیو
+                </a>
+            </div>
+            
+        </div>
+    </section>
+
     
     <section id="rules" class="content-section">
         <h2>قوانین کلاس</h2>
@@ -984,6 +1028,7 @@
                 <li><span class="rule-icon">📄</span><span class="rule-text">حضور منظم در کلاس الزامی است. </span></li>
                 <li><span class="rule-icon">📄</span><span class="rule-text">تحویل به موقع تکالیف. </span></li>
                 <li><span class="rule-icon">📄</span><span class="rule-text">عدم تقلب در امتحانات و عدم استفاده از  LLMها در حل تکالیف. </span></li>
+                <li><span class="rule-icon">📄</span><span class="rule-text">در صورت کشف تقلب ( هر نوعی ) علاوه بر اینکه نمره آن تمرین را نمی گیرید؛ از ارسال تکلیف هفته بعد هم محرومید. </span></li>
                 <li><span class="rule-icon">📄</span><span class="rule-text">سوالات مربوط به درس در پیوی دستیاران آموزش <strong>پرسیده نشود</strong> و <strong>فقط</strong> در گروه تلگرام مطرح شود. </span></li>
             </ul>
             <div class="rules-item-box">
