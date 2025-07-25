@@ -22,6 +22,7 @@ Welcome to the official webpage for the Data Structures course, Fall 2025 intake
 ## 🚀 Access the Current Website:
 
 The current semester's course website will be available via GitHub Pages. The exact link will be provided here soon.
+Update: https://ds-fall2025.github.io/ds-fall2025/
 
 ---
 
