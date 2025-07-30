@@ -26,6 +26,15 @@ Update: https://ds-fall2025.github.io/ds-fall2025/
 
 ---
 
+## 📖 Session Zero (Introduction):
+
+For students who couldn't attend the introductory session on **Shahrivar 31st** 👇 👇 
+
+**🔗Google Slide:**
+    [Presentation Link](https://docs.google.com/presentation/d/13biFWOOI3RiMyFXex7bhi9qkbbEO1GnOQXr7lZbhlyE/edit?usp=sharing)
+
+---
+
 ## 🏛️ History: Past Semester Websites:
 
 For access to information and resources from previous Data Structures course semesters, you can use the links below:
